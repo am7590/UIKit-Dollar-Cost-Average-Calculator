@@ -16,6 +16,8 @@
 		E6190FD227D011B800DE2C00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6190FD027D011B800DE2C00 /* LaunchScreen.storyboard */; };
 		E6190FDD27D01E2E00DE2C00 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E6190FDC27D01E2E00DE2C00 /* Podfile */; };
 		E6190FE127D02B4200DE2C00 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FE027D02B4200DE2C00 /* SearchTableViewCell.swift */; };
+		E6190FE427D02D9F00DE2C00 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FE327D02D9F00DE2C00 /* APIService.swift */; };
+		E6190FE727D02F6200DE2C00 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FE627D02F6200DE2C00 /* SearchResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E6190FD327D011B800DE2C00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6190FDC27D01E2E00DE2C00 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		E6190FE027D02B4200DE2C00 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		E6190FE327D02D9F00DE2C00 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		E6190FE627D02F6200DE2C00 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +89,10 @@
 		E6190FC427D011B700DE2C00 /* uikit-dca-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E6190FE527D02F5000DE2C00 /* Model */,
 				E6190FC527D011B700DE2C00 /* AppDelegate.swift */,
 				E6190FC727D011B700DE2C00 /* SceneDelegate.swift */,
+				E6190FE227D02D9100DE2C00 /* Service */,
 				E6190FDF27D02B1E00DE2C00 /* Controller */,
 				E6190FDE27D02B1700DE2C00 /* View */,
 				E6190FCB27D011B700DE2C00 /* Main.storyboard */,
@@ -111,6 +117,22 @@
 				E6190FC927D011B700DE2C00 /* SearchTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6190FE227D02D9100DE2C00 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E6190FE327D02D9F00DE2C00 /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E6190FE527D02F5000DE2C00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6190FE627D02F6200DE2C00 /* SearchResults.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6190FCA27D011B700DE2C00 /* SearchTableViewController.swift in Sources */,
+				E6190FE427D02D9F00DE2C00 /* APIService.swift in Sources */,
 				E6190FE127D02B4200DE2C00 /* SearchTableViewCell.swift in Sources */,
 				E6190FC627D011B700DE2C00 /* AppDelegate.swift in Sources */,
+				E6190FE727D02F6200DE2C00 /* SearchResults.swift in Sources */,
 				E6190FC827D011B700DE2C00 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
