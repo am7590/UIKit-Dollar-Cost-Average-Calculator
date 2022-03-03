@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E3961F4FFDC6FCF74D2693F2 /* Pods_uikit_dca_calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3D62B8761B151EBD1EA0A6 /* Pods_uikit_dca_calculator.framework */; };
+		E605E5B127D08C100023BA4C /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E605E5B027D08C100023BA4C /* SearchPlaceholderView.swift */; };
+		E605E5B427D090070023BA4C /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E605E5B327D090070023BA4C /* UIAnimatable.swift */; };
 		E6190FC627D011B700DE2C00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FC527D011B700DE2C00 /* AppDelegate.swift */; };
 		E6190FC827D011B700DE2C00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FC727D011B700DE2C00 /* SceneDelegate.swift */; };
 		E6190FCA27D011B700DE2C00 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FC927D011B700DE2C00 /* SearchTableViewController.swift */; };
@@ -24,6 +26,8 @@
 		162311124EADB248E6119442 /* Pods-uikit-dca-calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit-dca-calculator.release.xcconfig"; path = "Target Support Files/Pods-uikit-dca-calculator/Pods-uikit-dca-calculator.release.xcconfig"; sourceTree = "<group>"; };
 		80E3EE7FFB076DE16408D0FD /* Pods-uikit-dca-calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit-dca-calculator.debug.xcconfig"; path = "Target Support Files/Pods-uikit-dca-calculator/Pods-uikit-dca-calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3D62B8761B151EBD1EA0A6 /* Pods_uikit_dca_calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uikit_dca_calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E605E5B027D08C100023BA4C /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
+		E605E5B327D090070023BA4C /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
 		E6190FC227D011B700DE2C00 /* uikit-dca-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uikit-dca-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6190FC527D011B700DE2C00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6190FC727D011B700DE2C00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E605E5B227D08FEF0023BA4C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E605E5B327D090070023BA4C /* UIAnimatable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		E6190FB927D011B700DE2C00 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +101,8 @@
 		E6190FC427D011B700DE2C00 /* uikit-dca-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E6190FE627D02F6200DE2C00 /* SearchResults.swift */,
+				E605E5B227D08FEF0023BA4C /* Protocol */,
 				E6190FE527D02F5000DE2C00 /* Model */,
 				E6190FC527D011B700DE2C00 /* AppDelegate.swift */,
 				E6190FC727D011B700DE2C00 /* SceneDelegate.swift */,
@@ -107,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E6190FE027D02B4200DE2C00 /* SearchTableViewCell.swift */,
+				E605E5B027D08C100023BA4C /* SearchPlaceholderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,7 +145,6 @@
 		E6190FE527D02F5000DE2C00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E6190FE627D02F6200DE2C00 /* SearchResults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,11 +266,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6190FCA27D011B700DE2C00 /* SearchTableViewController.swift in Sources */,
+				E605E5B427D090070023BA4C /* UIAnimatable.swift in Sources */,
 				E6190FE427D02D9F00DE2C00 /* APIService.swift in Sources */,
 				E6190FE127D02B4200DE2C00 /* SearchTableViewCell.swift in Sources */,
 				E6190FC627D011B700DE2C00 /* AppDelegate.swift in Sources */,
 				E6190FE727D02F6200DE2C00 /* SearchResults.swift in Sources */,
 				E6190FC827D011B700DE2C00 /* SceneDelegate.swift in Sources */,
+				E605E5B127D08C100023BA4C /* SearchPlaceholderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
