@@ -62,6 +62,9 @@ class SearchTableViewController: UITableViewController, UIAnimable {
             .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink { [unowned self] (searchQuery) in
                 
+                // Stops function from searching empty query (bug fix)
+                guard searchQuery.isEmpty else {return}
+                
                 // Loading animation
                 showLoadingAnimation()
                 
@@ -116,6 +119,11 @@ class SearchTableViewController: UITableViewController, UIAnimable {
         }
         
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showCalculator", sender: nil)
     }
 
 }
