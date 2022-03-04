@@ -63,7 +63,7 @@ class SearchTableViewController: UITableViewController, UIAnimable {
             .sink { [unowned self] (searchQuery) in
                 
                 // Stops function from searching empty query (bug fix)
-                guard searchQuery.isEmpty else {return}
+                guard !searchQuery.isEmpty else {return}
                 
                 // Loading animation
                 showLoadingAnimation()

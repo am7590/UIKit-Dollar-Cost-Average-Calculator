@@ -20,6 +20,7 @@
 		E6190FE127D02B4200DE2C00 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FE027D02B4200DE2C00 /* SearchTableViewCell.swift */; };
 		E6190FE427D02D9F00DE2C00 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FE327D02D9F00DE2C00 /* APIService.swift */; };
 		E6190FE727D02F6200DE2C00 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FE627D02F6200DE2C00 /* SearchResults.swift */; };
+		E666D9A327D1D54500296231 /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = E666D9A227D1D54500296231 /* TimeSeriesMonthlyAdjusted.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E6190FE027D02B4200DE2C00 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E6190FE327D02D9F00DE2C00 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E6190FE627D02F6200DE2C00 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		E666D9A227D1D54500296231 /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,6 @@
 		E6190FC427D011B700DE2C00 /* uikit-dca-calculator */ = {
 			isa = PBXGroup;
 			children = (
-				E6190FE627D02F6200DE2C00 /* SearchResults.swift */,
 				E605E5B227D08FEF0023BA4C /* Protocol */,
 				E6190FE527D02F5000DE2C00 /* Model */,
 				E6190FC527D011B700DE2C00 /* AppDelegate.swift */,
@@ -145,6 +146,8 @@
 		E6190FE527D02F5000DE2C00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E6190FE627D02F6200DE2C00 /* SearchResults.swift */,
+				E666D9A227D1D54500296231 /* TimeSeriesMonthlyAdjusted.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				E6190FE427D02D9F00DE2C00 /* APIService.swift in Sources */,
 				E6190FE127D02B4200DE2C00 /* SearchTableViewCell.swift in Sources */,
 				E6190FC627D011B700DE2C00 /* AppDelegate.swift in Sources */,
+				E666D9A327D1D54500296231 /* TimeSeriesMonthlyAdjusted.swift in Sources */,
 				E6190FE727D02F6200DE2C00 /* SearchResults.swift in Sources */,
 				E6190FC827D011B700DE2C00 /* SceneDelegate.swift in Sources */,
 				E605E5B127D08C100023BA4C /* SearchPlaceholderView.swift in Sources */,
