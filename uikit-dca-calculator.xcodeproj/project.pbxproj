@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E3961F4FFDC6FCF74D2693F2 /* Pods_uikit_dca_calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3D62B8761B151EBD1EA0A6 /* Pods_uikit_dca_calculator.framework */; };
+		2989B80C27D3C2E80058B4B6 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2989B80B27D3C2E80058B4B6 /* MBProgressHUD */; };
+		2989B80F27D3C3380058B4B6 /* Loaf in Frameworks */ = {isa = PBXBuildFile; productRef = 2989B80E27D3C3380058B4B6 /* Loaf */; };
+		2989B81527D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989B81427D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift */; };
 		E605E5B127D08C100023BA4C /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E605E5B027D08C100023BA4C /* SearchPlaceholderView.swift */; };
 		E605E5B427D090070023BA4C /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E605E5B327D090070023BA4C /* UIAnimatable.swift */; };
 		E6190FC627D011B700DE2C00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FC527D011B700DE2C00 /* AppDelegate.swift */; };
@@ -24,8 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		162311124EADB248E6119442 /* Pods-uikit-dca-calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit-dca-calculator.release.xcconfig"; path = "Target Support Files/Pods-uikit-dca-calculator/Pods-uikit-dca-calculator.release.xcconfig"; sourceTree = "<group>"; };
-		80E3EE7FFB076DE16408D0FD /* Pods-uikit-dca-calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uikit-dca-calculator.debug.xcconfig"; path = "Target Support Files/Pods-uikit-dca-calculator/Pods-uikit-dca-calculator.debug.xcconfig"; sourceTree = "<group>"; };
+		2989B81427D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
 		BB3D62B8761B151EBD1EA0A6 /* Pods_uikit_dca_calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uikit_dca_calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E605E5B027D08C100023BA4C /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
 		E605E5B327D090070023BA4C /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
@@ -49,22 +50,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3961F4FFDC6FCF74D2693F2 /* Pods_uikit_dca_calculator.framework in Frameworks */,
+				2989B80C27D3C2E80058B4B6 /* MBProgressHUD in Frameworks */,
+				2989B80F27D3C3380058B4B6 /* Loaf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F5EEACABB4E329186C2B347 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				80E3EE7FFB076DE16408D0FD /* Pods-uikit-dca-calculator.debug.xcconfig */,
-				162311124EADB248E6119442 /* Pods-uikit-dca-calculator.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		A90B625782289FEEF39918DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +80,6 @@
 				E6190FDC27D01E2E00DE2C00 /* Podfile */,
 				E6190FC427D011B700DE2C00 /* uikit-dca-calculator */,
 				E6190FC327D011B700DE2C00 /* Products */,
-				9F5EEACABB4E329186C2B347 /* Pods */,
 				A90B625782289FEEF39918DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -147,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				E6190FE627D02F6200DE2C00 /* SearchResults.swift */,
-				E666D9A227D1D54500296231 /* TimeSeriesMonthlyAdjusted.swift */,
+				2989B81427D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,17 +151,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6190FD627D011B800DE2C00 /* Build configuration list for PBXNativeTarget "uikit-dca-calculator" */;
 			buildPhases = (
-				5A461F12E3686CB20DAA585E /* [CP] Check Pods Manifest.lock */,
 				E6190FBE27D011B700DE2C00 /* Sources */,
 				E6190FBF27D011B700DE2C00 /* Frameworks */,
 				E6190FC027D011B700DE2C00 /* Resources */,
-				0983CAD7F6298264145C4B73 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "uikit-dca-calculator";
+			packageProductDependencies = (
+				2989B80B27D3C2E80058B4B6 /* MBProgressHUD */,
+				2989B80E27D3C3380058B4B6 /* Loaf */,
+			);
 			productName = "uikit-dca-calculator";
 			productReference = E6190FC227D011B700DE2C00 /* uikit-dca-calculator.app */;
 			productType = "com.apple.product-type.application";
@@ -198,6 +192,10 @@
 				Base,
 			);
 			mainGroup = E6190FB927D011B700DE2C00;
+			packageReferences = (
+				2989B80A27D3C2E80058B4B6 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				2989B80D27D3C3380058B4B6 /* XCRemoteSwiftPackageReference "Loaf" */,
+			);
 			productRefGroup = E6190FC327D011B700DE2C00 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -221,48 +219,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0983CAD7F6298264145C4B73 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-uikit-dca-calculator/Pods-uikit-dca-calculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-uikit-dca-calculator/Pods-uikit-dca-calculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-uikit-dca-calculator/Pods-uikit-dca-calculator-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5A461F12E3686CB20DAA585E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-uikit-dca-calculator-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E6190FBE27D011B700DE2C00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,7 +229,7 @@
 				E6190FE427D02D9F00DE2C00 /* APIService.swift in Sources */,
 				E6190FE127D02B4200DE2C00 /* SearchTableViewCell.swift in Sources */,
 				E6190FC627D011B700DE2C00 /* AppDelegate.swift in Sources */,
-				E666D9A327D1D54500296231 /* TimeSeriesMonthlyAdjusted.swift in Sources */,
+				2989B81527D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift in Sources */,
 				E6190FE727D02F6200DE2C00 /* SearchResults.swift in Sources */,
 				E6190FC827D011B700DE2C00 /* SceneDelegate.swift in Sources */,
 				E605E5B127D08C100023BA4C /* SearchPlaceholderView.swift in Sources */,
@@ -420,7 +376,6 @@
 		};
 		E6190FD727D011B800DE2C00 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80E3EE7FFB076DE16408D0FD /* Pods-uikit-dca-calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -449,7 +404,6 @@
 		};
 		E6190FD827D011B800DE2C00 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 162311124EADB248E6119442 /* Pods-uikit-dca-calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -498,6 +452,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2989B80A27D3C2E80058B4B6 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		2989B80D27D3C3380058B4B6 /* XCRemoteSwiftPackageReference "Loaf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/schmidyy/Loaf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2989B80B27D3C2E80058B4B6 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2989B80A27D3C2E80058B4B6 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+		2989B80E27D3C3380058B4B6 /* Loaf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2989B80D27D3C3380058B4B6 /* XCRemoteSwiftPackageReference "Loaf" */;
+			productName = Loaf;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E6190FBA27D011B700DE2C00 /* Project object */;
 }

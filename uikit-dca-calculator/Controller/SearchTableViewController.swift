@@ -123,7 +123,27 @@ class SearchTableViewController: UITableViewController, UIAnimable {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showCalculator", sender: nil)
+        if let searchResults = self.searchResults {
+            let symbol = searchResults.items[indexPath.item].symbol
+            handleSelection(for: symbol)
+        }
+    }
+    
+    private func handleSelection(for symbol: String) {
+        apiService.fetchTimeSeriesMonthlyAdjustedPublisher(ticker: symbol).sink { (completionResult) in
+            switch completionResult {
+            case .failure(let error):
+                print(error)
+            case .finished: break  // Unlikely to happen
+            }
+        
+        } receiveValue: { (TimeSeriesMonthlyAdjusted) in
+            print("success: \(TimeSeriesMonthlyAdjusted.getMonthInfo())")
+        }.store(in: &subscribers)
+
+        
+        
+        //performSegue(withIdentifier: "showCalculator", sender: nil)
     }
 
 }
