@@ -7,11 +7,50 @@
 
 import Foundation
 
+
+struct MonthInfo {
+    let data: Date
+    let adjustedOpen: Double
+    let adjustedClose: Double
+}
+
 struct TimeSeriesMonthlyAdjusted: Decodable {
     
     let metadata: Metadata
     let timeSeries: [String: OHLC]
+    
+    enum CodingKeys: String, CodingKey {
+        case metadata = "Meta Data"
+        case timeSeries = "Monthly Adjusted Time Series"
+    }
+    
+    func getMonthInfo() -> [MonthInfo] {
+        var monthInfoList: [MonthInfo] = []
+        
+        // Sort time series by date (key value)
+        let sortedTimeSeries = timeSeries.sorted(by: {$0.key > $1.key})
+
+        sortedTimeSeries.forEach { (dateString, ohlc) in
+            // Read data format from JSON correctly
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatter.date(from: dateString)!
+            let adjustedOpen = getAdjustedOpen(ohlc: ohlc)
+            let monthInfo = MonthInfo(data: date, adjustedOpen: adjustedOpen, adjustedClose: Double(ohlc.adjustedClose)!)
+            monthInfoList.append(monthInfo)
+        }
+        
+        return monthInfoList
+    }
+    
+    // Adjusted open = open * (adjusted close / close)
+    private func getAdjustedOpen(ohlc: OHLC) -> Double {
+        return Double(ohlc.open)! * (Double(ohlc.adjustedClose)! / Double(ohlc.close)!)
+    }
 }
+
+
+
 
 struct Metadata: Decodable {
     let symbol: String
