@@ -10,6 +10,9 @@
 		2989B80C27D3C2E80058B4B6 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2989B80B27D3C2E80058B4B6 /* MBProgressHUD */; };
 		2989B80F27D3C3380058B4B6 /* Loaf in Frameworks */ = {isa = PBXBuildFile; productRef = 2989B80E27D3C3380058B4B6 /* Loaf */; };
 		2989B81527D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989B81427D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift */; };
+		2989B81927D3EDD70058B4B6 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989B81827D3EDD70058B4B6 /* Asset.swift */; };
+		2989B81B27D3F6A50058B4B6 /* CalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989B81A27D3F6A50058B4B6 /* CalculatorTableViewController.swift */; };
+		2989B81E27D400A10058B4B6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2989B81D27D400A10058B4B6 /* String+Extensions.swift */; };
 		E605E5B127D08C100023BA4C /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E605E5B027D08C100023BA4C /* SearchPlaceholderView.swift */; };
 		E605E5B427D090070023BA4C /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E605E5B327D090070023BA4C /* UIAnimatable.swift */; };
 		E6190FC627D011B700DE2C00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6190FC527D011B700DE2C00 /* AppDelegate.swift */; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		2989B81427D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
+		2989B81827D3EDD70058B4B6 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		2989B81A27D3F6A50058B4B6 /* CalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTableViewController.swift; sourceTree = "<group>"; };
+		2989B81D27D400A10058B4B6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		BB3D62B8761B151EBD1EA0A6 /* Pods_uikit_dca_calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uikit_dca_calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E605E5B027D08C100023BA4C /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
 		E605E5B327D090070023BA4C /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
@@ -58,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2989B81C27D400920058B4B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2989B81D27D400A10058B4B6 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A90B625782289FEEF39918DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +109,7 @@
 		E6190FC427D011B700DE2C00 /* uikit-dca-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				2989B81C27D400920058B4B6 /* Extensions */,
 				E605E5B227D08FEF0023BA4C /* Protocol */,
 				E6190FE527D02F5000DE2C00 /* Model */,
 				E6190FC527D011B700DE2C00 /* AppDelegate.swift */,
@@ -123,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				E6190FC927D011B700DE2C00 /* SearchTableViewController.swift */,
+				2989B81A27D3F6A50058B4B6 /* CalculatorTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,6 +156,7 @@
 			children = (
 				E6190FE627D02F6200DE2C00 /* SearchResults.swift */,
 				2989B81427D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift */,
+				2989B81827D3EDD70058B4B6 /* Asset.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,9 +241,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2989B81B27D3F6A50058B4B6 /* CalculatorTableViewController.swift in Sources */,
 				E6190FCA27D011B700DE2C00 /* SearchTableViewController.swift in Sources */,
 				E605E5B427D090070023BA4C /* UIAnimatable.swift in Sources */,
 				E6190FE427D02D9F00DE2C00 /* APIService.swift in Sources */,
+				2989B81E27D400A10058B4B6 /* String+Extensions.swift in Sources */,
+				2989B81927D3EDD70058B4B6 /* Asset.swift in Sources */,
 				E6190FE127D02B4200DE2C00 /* SearchTableViewCell.swift in Sources */,
 				E6190FC627D011B700DE2C00 /* AppDelegate.swift in Sources */,
 				2989B81527D3D9C10058B4B6 /* TimeSeriesMonthlyAdjusted.swift in Sources */,
