@@ -18,6 +18,7 @@ class CalculatorTableViewController: UITableViewController {
     // Text views
     @IBOutlet weak var initialInvestmentAmountTextField: UITextField!
     @IBOutlet weak var monthlyDollarCostAveragingTextField: UITextField!
+    @IBOutlet weak var initialDateOfInvestmentTextField: UITextField!
     
     
     
@@ -49,6 +50,43 @@ class CalculatorTableViewController: UITableViewController {
         initialInvestmentAmountTextField.addDoneButton()
         monthlyDollarCostAveragingTextField.addDoneButton()
         
+        // Stop text from appearing when the textfield is tapped
+        initialDateOfInvestmentTextField.delegate = self
         
+    } //showDateSelection
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Sends data to DateSelectionTableViewController
+        if segue.identifier == "showDateSelection", let dateSelectionTableViewController = segue.destination as? DateSelectionTableViewController, let timeSeriesMonthlyAdjusted = sender as? TimeSeriesMonthlyAdjusted {
+            dateSelectionTableViewController.timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted
+            dateSelectionTableViewController.didSelectDate = { [weak self] index in
+                self?.handleDateSelection(at: index)
+            }
+        }
+    }
+    
+    
+    private func handleDateSelection(at index: Int) {
+        if let monthInfos = asset?.timeSeriesMonthlyAdjusted.getMonthInfo() {
+            let monthInfo = monthInfos[index]
+            let dateString = monthInfo.date.MMYYFormat
+            initialDateOfInvestmentTextField.text = dateString
+        }
+    }
+    
+}
+
+
+
+extension CalculatorTableViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        if textField == initialDateOfInvestmentTextField {
+            // Move to date selection view
+            performSegue(withIdentifier: "showDateSelection", sender: asset?.timeSeriesMonthlyAdjusted)
+        }
+        
+        return false  // True means the keyboard will show
     }
 }

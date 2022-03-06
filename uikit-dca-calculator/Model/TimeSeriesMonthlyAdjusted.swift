@@ -9,7 +9,7 @@ import Foundation
 
 
 struct MonthInfo {
-    let data: Date
+    let date: Date
     let adjustedOpen: Double
     let adjustedClose: Double
 }
@@ -36,7 +36,7 @@ struct TimeSeriesMonthlyAdjusted: Decodable {
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let date = dateFormatter.date(from: dateString)!
             let adjustedOpen = getAdjustedOpen(ohlc: ohlc)
-            let monthInfo = MonthInfo(data: date, adjustedOpen: adjustedOpen, adjustedClose: Double(ohlc.adjustedClose)!)
+            let monthInfo = MonthInfo(date: date, adjustedOpen: adjustedOpen, adjustedClose: Double(ohlc.adjustedClose)!)
             monthInfoList.append(monthInfo)
         }
         
