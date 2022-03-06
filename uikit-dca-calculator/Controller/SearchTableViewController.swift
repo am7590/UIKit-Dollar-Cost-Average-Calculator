@@ -128,6 +128,9 @@ class SearchTableViewController: UITableViewController, UIAnimable {
             let symbol = searchResult.symbol
             handleSelection(for: symbol, searchResult: searchResult)
         }
+        
+        // Prevent cells from being selected
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
