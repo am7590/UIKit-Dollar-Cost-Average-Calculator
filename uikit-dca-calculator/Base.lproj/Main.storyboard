@@ -427,6 +427,9 @@
                                                                 </stackView>
                                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kgv-4t-tsu">
                                                                     <rect key="frame" x="-2" y="42" width="386" height="35"/>
+                                                                    <connections>
+                                                                        <action selector="dateSliderDidChange:" destination="zKU-On-Y9d" eventType="valueChanged" id="we7-RI-1DL"/>
+                                                                    </connections>
                                                                 </slider>
                                                             </subviews>
                                                         </stackView>
@@ -451,6 +454,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="dpT-Zi-nja"/>
                     <connections>
+                        <outlet property="dateSlider" destination="kgv-4t-tsu" id="Ruo-2f-0p8"/>
                         <outlet property="initialDateOfInvestmentTextField" destination="EE6-ga-uuV" id="Mkl-bx-8bL"/>
                         <outlet property="initialInvestmentAmountTextField" destination="iO4-mq-1bw" id="6ZS-Fr-Grq"/>
                         <outlet property="investmentAmountCurrencyLabel" destination="gcb-96-crB" id="Ng4-Es-Si7"/>

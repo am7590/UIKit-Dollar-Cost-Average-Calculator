@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class CalculatorTableViewController: UITableViewController {
     
@@ -19,15 +20,25 @@ class CalculatorTableViewController: UITableViewController {
     @IBOutlet weak var initialInvestmentAmountTextField: UITextField!
     @IBOutlet weak var monthlyDollarCostAveragingTextField: UITextField!
     @IBOutlet weak var initialDateOfInvestmentTextField: UITextField!
-    
-    
+        
+    // Slider
+    @IBOutlet weak var dateSlider: UISlider!
     
     var asset: Asset?
+    
+    @Published private var initialDateOfInvestmentIndex: Int?  // Perform an action when this var changes
+    @Published private var initialInvestmentAmount: Int?
+    @Published private var monthlyDollarCostAveragingAmount: Int?
+    
+    private var subscribers = Set<AnyCancellable>()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupTextFields()
+        setupDateSlider()
+        observeForm()
     }
     
     
@@ -53,13 +64,64 @@ class CalculatorTableViewController: UITableViewController {
         // Stop text from appearing when the textfield is tapped
         initialDateOfInvestmentTextField.delegate = self
         
-    } //showDateSelection
+    }
+    
+    
+    private func setupDateSlider() {
+        if let count = asset?.timeSeriesMonthlyAdjusted.getMonthInfo().count {
+            let dateSliderCount = count - 1
+            dateSlider.maximumValue = dateSliderCount.floatValue
+        }
+    }
+    
+    
+    private func observeForm() {
+        $initialDateOfInvestmentIndex.sink { [weak self] (index) in
+            guard let index = index else { return }
+            self?.dateSlider.value = index.floatValue
+            
+            // Let slider dictate date values
+            if let dateString = self?.asset?.timeSeriesMonthlyAdjusted.getMonthInfo()[index].date.MMYYFormat {
+                self?.initialDateOfInvestmentTextField.text = dateString
+            }
+            
+            
+        }.store(in: &subscribers)
+        
+        // This closure observes the event each time the user types
+        // Listens to initialInvestmentAmountTextField
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: initialInvestmentAmountTextField).compactMap({
+            ($0.object as? UITextField)?.text
+        }).sink { [weak self] (text) in
+            // Perform action when value changes
+            self?.initialInvestmentAmount = Int(text) ?? 0
+            // print(text)
+        }.store(in: &subscribers)
+        
+        
+        // Listens to monthlyDollarCostAveragingTextField
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: monthlyDollarCostAveragingTextField).compactMap({
+            ($0.object as? UITextField)?.text
+        }).sink { [weak self] (text) in
+            // Perform action when value changes
+            self?.monthlyDollarCostAveragingAmount = Int(text) ?? 0
+            // print(text)
+        }.store(in: &subscribers)
+        
+        // Update whenever any of the published vars change value
+        Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAveragingAmount, $initialDateOfInvestmentIndex).sink { (initialInvestmentAmount, monthlyDollarCostAveragingAmount, initialDateOfInvestmentIndex) in
+            print("\(initialInvestmentAmount), \(monthlyDollarCostAveragingAmount), \(initialDateOfInvestmentIndex),")
+        }.store(in: &subscribers)
+        
+        
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Sends data to DateSelectionTableViewController
         if segue.identifier == "showDateSelection", let dateSelectionTableViewController = segue.destination as? DateSelectionTableViewController, let timeSeriesMonthlyAdjusted = sender as? TimeSeriesMonthlyAdjusted {
             dateSelectionTableViewController.timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted
+            dateSelectionTableViewController.selectedIndex = initialDateOfInvestmentIndex
             dateSelectionTableViewController.didSelectDate = { [weak self] index in
                 self?.handleDateSelection(at: index)
             }
@@ -68,12 +130,23 @@ class CalculatorTableViewController: UITableViewController {
     
     
     private func handleDateSelection(at index: Int) {
+        // Return back to calculator view when a date cell is tapped
+        guard navigationController?.visibleViewController is DateSelectionTableViewController else { return }
+        navigationController?.popViewController(animated: true)
+        
+        // Select cell
         if let monthInfos = asset?.timeSeriesMonthlyAdjusted.getMonthInfo() {
+            initialDateOfInvestmentIndex = index
             let monthInfo = monthInfos[index]
             let dateString = monthInfo.date.MMYYFormat
             initialDateOfInvestmentTextField.text = dateString
         }
     }
+    
+    @IBAction func dateSliderDidChange(_ sender: UISlider) {
+        initialDateOfInvestmentIndex = Int(sender.value)
+    }
+    
     
 }
 
@@ -85,8 +158,9 @@ extension CalculatorTableViewController: UITextFieldDelegate {
         if textField == initialDateOfInvestmentTextField {
             // Move to date selection view
             performSegue(withIdentifier: "showDateSelection", sender: asset?.timeSeriesMonthlyAdjusted)
+            return false  // True means the keyboard will show
         }
         
-        return false  // True means the keyboard will show
+        return true
     }
 }
