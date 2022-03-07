@@ -13,4 +13,8 @@ extension Int {
         return Float(self)
     }
     
+    var doubleValue: Double {
+        return Double(self)
+    }
+    
 }

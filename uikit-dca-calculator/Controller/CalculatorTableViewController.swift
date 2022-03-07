@@ -24,6 +24,16 @@ class CalculatorTableViewController: UITableViewController {
     // Slider
     @IBOutlet weak var dateSlider: UISlider!
     
+    // Results from calculation labels
+    @IBOutlet weak var currentValueLabel: UILabel!
+    @IBOutlet weak var investmentAmountLabel: UILabel!
+    @IBOutlet weak var gainLabel: UILabel!
+    @IBOutlet weak var yieldLabel: UILabel!
+    @IBOutlet weak var annualReturnLabel: UILabel!
+    
+    
+    
+    
     var asset: Asset?
     
     @Published private var initialDateOfInvestmentIndex: Int?  // Perform an action when this var changes
@@ -31,6 +41,7 @@ class CalculatorTableViewController: UITableViewController {
     @Published private var monthlyDollarCostAveragingAmount: Int?
     
     private var subscribers = Set<AnyCancellable>()
+    private let dcaService = DCAService()
     
     
     override func viewDidLoad() {
@@ -109,8 +120,25 @@ class CalculatorTableViewController: UITableViewController {
         }.store(in: &subscribers)
         
         // Update whenever any of the published vars change value
-        Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAveragingAmount, $initialDateOfInvestmentIndex).sink { (initialInvestmentAmount, monthlyDollarCostAveragingAmount, initialDateOfInvestmentIndex) in
-            print("\(initialInvestmentAmount), \(monthlyDollarCostAveragingAmount), \(initialDateOfInvestmentIndex),")
+        Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAveragingAmount, $initialDateOfInvestmentIndex).sink { [weak self] (initialInvestmentAmount, monthlyDollarCostAveragingAmount, initialDateOfInvestmentIndex)  in
+            
+            // Do DCA calculations
+            guard let initialInvestmentAmount = initialInvestmentAmount,
+                  let monthlyDollarCostAveragingAmount = monthlyDollarCostAveragingAmount,
+                  let initialDateOfInvestmentIndex = initialDateOfInvestmentIndex
+            else { return }
+
+            
+            let result = self?.dcaService.calculate(initialInvestmentAmount: initialInvestmentAmount.doubleValue, monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount.doubleValue, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
+            
+            
+            //print("\(initialInvestmentAmount), \(monthlyDollarCostAveragingAmount), \(initialDateOfInvestmentIndex),")
+            self?.currentValueLabel.text = result?.currentValue.stringValue
+            self?.investmentAmountLabel.text = result?.investmentAmount.stringValue
+            self?.gainLabel.text = result?.gain.stringValue
+            self?.yieldLabel.text = result?.yield.stringValue
+            self?.annualReturnLabel.text = result?.annualReturn.stringValue
+            
         }.store(in: &subscribers)
         
         
