@@ -125,11 +125,13 @@ class CalculatorTableViewController: UITableViewController {
             // Do DCA calculations
             guard let initialInvestmentAmount = initialInvestmentAmount,
                   let monthlyDollarCostAveragingAmount = monthlyDollarCostAveragingAmount,
-                  let initialDateOfInvestmentIndex = initialDateOfInvestmentIndex
+                  let initialDateOfInvestmentIndex = initialDateOfInvestmentIndex,
+                  let asset = self?.asset
             else { return }
 
             
-            let result = self?.dcaService.calculate(initialInvestmentAmount: initialInvestmentAmount.doubleValue, monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount.doubleValue, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
+            
+            let result = self?.dcaService.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount.doubleValue, monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount.doubleValue, initialDateOfInvestmentIndex: initialDateOfInvestmentIndex)
             
             
             //print("\(initialInvestmentAmount), \(monthlyDollarCostAveragingAmount), \(initialDateOfInvestmentIndex),")
