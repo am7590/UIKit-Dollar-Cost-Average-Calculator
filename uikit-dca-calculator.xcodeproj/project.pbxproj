@@ -31,6 +31,7 @@
 		E650568327D5A18B0055F9FD /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650568227D5A18B0055F9FD /* Int+Extensions.swift */; };
 		E650568527D5A8CE0055F9FD /* DCAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650568427D5A8CE0055F9FD /* DCAService.swift */; };
 		E650568727D5ABFB0055F9FD /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E650568627D5ABFB0055F9FD /* Double+Extensions.swift */; };
+		E67280C127DEC8FF00E12752 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67280C027DEC8FE00E12752 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		E650568227D5A18B0055F9FD /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		E650568427D5A8CE0055F9FD /* DCAService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCAService.swift; sourceTree = "<group>"; };
 		E650568627D5ABFB0055F9FD /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		E67280C027DEC8FE00E12752 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				E650568027D52C350055F9FD /* Date+Extensions.swift */,
 				E650568227D5A18B0055F9FD /* Int+Extensions.swift */,
 				E650568627D5ABFB0055F9FD /* Double+Extensions.swift */,
+				E67280C027DEC8FE00E12752 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				2989B81E27D400A10058B4B6 /* String+Extensions.swift in Sources */,
 				2989B81927D3EDD70058B4B6 /* Asset.swift in Sources */,
 				E650568127D52C350055F9FD /* Date+Extensions.swift in Sources */,
+				E67280C127DEC8FF00E12752 /* UIColor+Extensions.swift in Sources */,
 				E6190FE127D02B4200DE2C00 /* SearchTableViewCell.swift in Sources */,
 				E650568527D5A8CE0055F9FD /* DCAService.swift in Sources */,
 				E650568727D5ABFB0055F9FD /* Double+Extensions.swift in Sources */,
