@@ -52,6 +52,7 @@ class SearchTableViewController: UITableViewController, UIAnimable {
      
     
     private func setupTableView() {
+        tableView.isScrollEnabled = false  // Makes view not scrollable
         tableView.tableFooterView = UIView()
     }
     
@@ -86,9 +87,11 @@ class SearchTableViewController: UITableViewController, UIAnimable {
                     // If success
                     //print(searchResults)
                     self.searchResults = searchResults
-                    
+
                     // Reload tableview data
                     self.tableView.reloadData()
+                    
+                    self.tableView.isScrollEnabled = true  // Enable scrolling w/ results
                     
                 }.store(in: &self.subscribers)
             }.store(in: &subscribers)
@@ -153,7 +156,9 @@ class SearchTableViewController: UITableViewController, UIAnimable {
             self.hideLoadingAnimation()
             let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
             self.performSegue(withIdentifier: "showCalculator", sender: asset)
-            print("success: \(timeSeriesMonthlyAdjusted.getMonthInfo())")
+//            print("success: \(timeSeriesMonthlyAdjusted.getMonthInfo())")
+            self.searchController.searchBar.text = nil  // Gets rid of redundent api calls after navigating back from calculator view
+            
             
         }.store(in: &subscribers)
 

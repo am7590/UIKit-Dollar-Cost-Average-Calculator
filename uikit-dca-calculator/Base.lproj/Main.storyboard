@@ -351,6 +351,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="36" id="KBd-au-Qjw"/>
                                                                     </constraints>
+                                                                    <color key="textColor" systemColor="systemGreenColor"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
@@ -384,6 +385,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="36" id="bnv-qR-eVN"/>
                                                                     </constraints>
+                                                                    <color key="textColor" systemColor="systemGreenColor"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
@@ -417,6 +419,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="36" id="FYz-MU-vgQ"/>
                                                                     </constraints>
+                                                                    <color key="textColor" systemColor="systemGreenColor"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>

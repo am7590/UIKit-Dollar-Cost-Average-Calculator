@@ -17,11 +17,28 @@ extension Double {
         return String(format: "%.2f", self)
     }
     
+    var percentageFormat: String {
+        let formatter = NumberFormatter()
+         formatter.numberStyle = .percent     // set to %
+         formatter.maximumFractionDigits = 2  // 2 decimal points
+         return formatter.string(from: self as NSNumber) ?? twoDecimalPlaceString
+    }
+    
     var currencyFormat: String {
        let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         return formatter.string(from: self as NSNumber) ?? twoDecimalPlaceString
-        
-        
+    }
+    
+    func toCurrencyFormat(hasDollarSymbol: Bool, hasDecimalPlaces: Bool = true) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if hasDollarSymbol == false {
+            formatter.currencySymbol = ""
+        }
+        if hasDecimalPlaces == false {
+            formatter.maximumFractionDigits = 0
+        }
+        return formatter.string(from: self as NSNumber) ?? twoDecimalPlaceString
     }
 }

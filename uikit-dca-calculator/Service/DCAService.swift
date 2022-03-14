@@ -23,11 +23,17 @@ struct DCAService {
         
         let isProfitable = currentValue > investmentAmount
         
+        let gain = currentValue - investmentAmount
+        
+        let yield = gain / investmentAmount
+        
+        let annualReturn = getAnnualReturn(currentValue: currentValue, investmentAmount: investmentAmount, initialInvestmentAmount: initialDateOfInvestmentIndex)
+        
         return .init(currentValue: currentValue,
                      investmentAmount: investmentAmount,
-                     gain: 0,
-                     yield: 0,
-                     annualReturn: 0, isProfitable: isProfitable)
+                     gain: gain,
+                     yield: yield,
+                     annualReturn: annualReturn, isProfitable: isProfitable)
         
         
         
@@ -41,6 +47,13 @@ struct DCAService {
         let dollarCostAveragingAmount = initialDateOfInvestmentIndex.doubleValue * monthlyDollarCostAveragingAmount
         totalAmount += dollarCostAveragingAmount
         return totalAmount
+    }
+    
+    // CAGR (compound annual growth rate) = ((ending value / beginning value) ^ (1 / years)) - 1
+    private func getAnnualReturn(currentValue: Double, investmentAmount: Double, initialInvestmentAmount: Int) -> Double {
+        let rate = currentValue / investmentAmount
+        let years = (initialInvestmentAmount.doubleValue + 1) / 12 // Starts at 0
+        return pow(rate, (1 / years)) - 1
     }
     
     
