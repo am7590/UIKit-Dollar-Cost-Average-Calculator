@@ -181,19 +181,28 @@ extension SearchTableViewController: UISearchResultsUpdating, UISearchController
     
     // Responds to search queries; updates tableview with results
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchQuery = searchController.searchBar.text, !searchQuery.isEmpty else { return }
+        guard let searchQuery = searchController.searchBar.text, !searchQuery.isEmpty else {
+            // Display SearchPlaceholderView when the cancel button is pressed
+            if !searchController.isActive {
+                print("won't present")
+                self.tableView.backgroundView = SearchPlaceholderView()
+            }
+            
+            return
+            
+        }
+        
         self.searchQuery = searchQuery
         
         // Make API call with query
         
     }
-    
+
     
     // Triggers when the search bar is tapped
     func willPresentSearchController(_ searchController: UISearchController) {
         print("will present")
         mode = .search
     }
-    
-    
+
 }
